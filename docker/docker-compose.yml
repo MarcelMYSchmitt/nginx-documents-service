@@ -1,0 +1,12 @@
+version: "3.4"
+
+services:
+  documents-service:
+    image: mrmyiagi/documents-service
+    container_name: documents-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1234:8080"
+    restart: unless-stopped

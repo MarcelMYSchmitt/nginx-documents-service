@@ -1,0 +1,5 @@
+# Documents Service
+
+Helm Chart for deploying Documents Service in Kubernetes.
+
+

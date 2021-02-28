@@ -1,0 +1,35 @@
+replicaCount: 1
+
+image:
+  repository: mrmyiagi/documents-service
+  tag: latest
+  pullPolicy: Always
+  pullSecret: SHOULD_BE_SET_IN_CI_CD
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+  portName: documents
+  targetPort: 8080
+
+monitoring:
+  runAsUser: 1000
+  fsGroup: 1000
+
+  resources:
+   limits:
+     cpu: 250m
+     memory: 128Mi
+   requests:
+     memory: 64Mi
+     cpu: 100m
+
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

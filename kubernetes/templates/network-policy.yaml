@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "documents.fullname" . }}-networkpolicy
+spec:
+  ingress:
+  - ports:
+    - port: {{ .Values.service.targetPort }}
+      protocol: TCP
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "documents.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
